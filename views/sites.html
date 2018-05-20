@@ -1,0 +1,12 @@
+
+<div style="padding-left: 50px;padding-right: 50px;padding-top: 100px;">
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-click="setTabContent('list_sites')"><a href="#">All Sites</a></li>
+        <div style="float: right;padding-right: 50px;">
+            <button type="button" class="btn btn-primary">New Site</button>
+        </div>
+    </ul>
+    <div>
+        <ng-include src="tabContentUrl"></ng-include>
+    </div>
+</div>

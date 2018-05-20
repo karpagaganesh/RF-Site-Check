@@ -4,4 +4,13 @@ rfSiteCheckApp.service('utilityService', [function () {
             thisArray.pop();
         }
     };
+
+    var hasValueAndNotEmpty = function (property) {
+        return !(property === undefined || property === null || property === '');
+    };
+
+    return{
+        hasValueAndNotEmpty: hasValueAndNotEmpty,
+        clearArray:clearArray
+    }
 }]);
