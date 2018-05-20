@@ -2,14 +2,21 @@ rfSiteCheckApp.controller("siteController",
     ['$scope', 'siteService', 'NgTableParams' ,
         function($scope, siteService, NgTableParams){
     var siteControllerModel = $scope;
-    siteControllerModel.tabContentUrl = siteService.getTabUrlValues()[0];
+    siteControllerModel.tabContentUrl = siteService.getTabUrlValues()[0].page;
 
     var data = [{siteId: 'AXL12345', operator: 'ATT', state: 'Texas'}];
+    var newData = [{siteId: '', operator: '', state: ''}];
     siteControllerModel.tableParams = new NgTableParams({}, { dataset: data});
 
-    siteControllerModel.sites = [{name: 'All Sites', page:'list_sites'}]
+    siteControllerModel.newTableParams = new NgTableParams({}, { dataset: newData});
+    siteControllerModel.sites = siteService.getSites()
 
-    siteControllerModel.setTabContent = function(name) {
-        siteControllerModel.tabContentUrl = "views/" +name+".html";
+    siteControllerModel.setTabContent = function(page) {
+        siteControllerModel.tabContentUrl = page;
     };
+
+    siteControllerModel.addSite = function(){
+        siteService.addSite();
+        siteControllerModel.tabContentUrl = siteService.getTabUrlValues()[1].page;
+    }
 }]);
