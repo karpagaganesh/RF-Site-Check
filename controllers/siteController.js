@@ -2,7 +2,7 @@ rfSiteCheckApp.controller("siteController",
     ['$scope', 'siteService', 'NgTableParams' ,
         function($scope, siteService, NgTableParams){
     var siteControllerModel = $scope;
-    siteControllerModel.selected = {};
+    siteControllerModel.selectedSite = siteService.getSelectedSite();
     siteControllerModel.tabContentUrl = siteService.getTabViewUrl();
     var data = siteService.getAllSitesData();
     var newData = [{siteId: '', operator: '', state: ''}];
@@ -11,8 +11,8 @@ rfSiteCheckApp.controller("siteController",
     siteControllerModel.newTableParams = new NgTableParams({}, { dataset: newData});
     siteControllerModel.sites = siteService.getSites();
 
-    siteControllerModel.setTabContent = function(page) {
-        siteService.setTabContent(page);
+    siteControllerModel.setTabContent = function(site) {
+        siteService.setTabContent(site);
     };
 
     siteControllerModel.addSite = function(){
@@ -21,7 +21,6 @@ rfSiteCheckApp.controller("siteController",
 
     siteControllerModel.openSite = function (site) {
         siteService.openSite(site);
-        siteControllerModel.selected.site = site
     };
 
     siteControllerModel.downloadSite = function (site) {

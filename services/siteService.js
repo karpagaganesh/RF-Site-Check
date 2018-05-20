@@ -8,13 +8,16 @@ rfSiteCheckApp.service('siteService',
             {siteId: 'AXL12346', operator: 'TMobile', state: 'Texas'},
             {siteId: 'AXL12347', operator: 'TMobile', state: 'Texas'}];
 
-        var tabView = {page:'views/list_sites.html'}
+        var tabView = {page:'views/list_sites.html'};
+        var selectedSite = {value: null};
 
         var getTabViewUrl = function(){
             return tabView
         };
 
-        var setTabContent = function(page){
+        var setTabContent = function(site){
+            page = site.page;
+            selectedSite.value = site;
             if (page.includes('list')){
                 tabView.page = 'views/list_sites.html';
             }
@@ -37,6 +40,7 @@ rfSiteCheckApp.service('siteService',
         var addSite = function () {
             sitesTab.splice(1, 0, {name: 'Untitled Site', id:'', page:'views/new_site.html'});
             tabView.page = 'views/new_site.html';
+            selectedSite.value = null;
         };
 
         var openSite = function (site) {
@@ -46,6 +50,11 @@ rfSiteCheckApp.service('siteService',
                 }
             }
             tabView.page = 'views/view_site.html';
+            selectedSite.value = site;
+        };
+
+        var getSelectedSite = function () {
+            return selectedSite;
         };
 
         return {
@@ -54,6 +63,7 @@ rfSiteCheckApp.service('siteService',
             getAllSitesData: getAllSitesData,
             addSite: addSite,
             openSite: openSite,
-            getTabViewUrl: getTabViewUrl
+            getTabViewUrl: getTabViewUrl,
+            getSelectedSite: getSelectedSite
         };
 }]);

@@ -1,7 +1,7 @@
 <div ng-controller="siteController">
     <div style="padding-left: 50px;padding-right: 50px;padding-top: 100px;">
         <ul class="nav nav-tabs">
-            <li role="presentation" ng-repeat="site in sites" ng-click="setTabContent(site.page)">
+            <li role="presentation" ng-repeat="site in sites" ng-click="setTabContent(site)">
                 <a href="#">{{site.name}}</a>
             </li>
             <div style="float: right;padding-right: 50px;">
