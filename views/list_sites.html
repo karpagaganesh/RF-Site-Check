@@ -1,0 +1,12 @@
+<div ng-controller="siteController">
+    <table ng-table="tableParams" class="table" show-filter="true">
+        <tr ng-repeat="site in $data">
+            <td title="'Site ID'" filter="{ siteId: 'text'}" sortable="'siteId'">
+                {{site.siteId}}</td>
+            <td title="'Operator'" filter="{ operator: 'text'}" sortable="'operator'">
+                {{site.operator}}</td>
+            <td title="'State'" filter="{ state: 'text'}" sortable="'state'">
+                {{site.state}}</td>
+        </tr>
+    </table>
+</div>
