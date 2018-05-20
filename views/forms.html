@@ -1,0 +1,23 @@
+
+<div style="padding-left: 50px;padding-right: 50px;padding-top: 100px;">
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-click="setTabContent('calcEngine')"><a href="#">Working Form</a></li>
+        <li role="presentation" ng-click="setTabContent('calculations')"><a href="#">Calculations</a></li>
+        <li role="presentation" ng-click="setTabContent('compare')"><a href="#">Compare</a></li>
+        <div style="float: right;padding-right: 50px;">
+            <!--<div class="btn-group" ng-controller="calcExtractionController">-->
+                <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                    <!--{{selectedForm.name}}<span class="caret"></span>-->
+                <!--</button>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li ng-repeat=" form in forms" ng-click="getFormSelectedForm(form.name)"><a>{{form.name}}</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <button type="button" class="btn btn-primary">New Site</button>
+        </div>
+    </ul>
+    <div ng-if="selectedForm.name=='Select Form'" class="alert alert-warning" role="alert">Please select a form</div>
+    <div ng-if="selectedForm.name!='Select Form'">
+        <ng-include src="tabContentUrl"></ng-include>
+    </div>
+</div>
