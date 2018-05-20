@@ -1,7 +1,9 @@
-
-<div style="padding-left: 50px;padding-right: 50px;padding-top: 100px;">
+<div style="padding-left: 50px;padding-right: 50px;padding-top: 100px;"
+     ng-controller="siteController">
     <ul class="nav nav-tabs">
-        <li role="presentation" ng-click="setTabContent('list_sites')"><a href="#">All Sites</a></li>
+        <li role="presentation" ng-repeat="site in sites" ng-click="setTabContent(site.page)">
+            <a href="#">{{site.name}}</a>
+        </li>
         <div style="float: right;padding-right: 50px;">
             <button type="button" class="btn btn-primary">New Site</button>
         </div>
