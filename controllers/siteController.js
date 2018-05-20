@@ -4,7 +4,7 @@ rfSiteCheckApp.controller("siteController",
     var siteControllerModel = $scope;
     siteControllerModel.tabContentUrl = siteService.getTabUrlValues()[0].page;
 
-    var data = [{siteId: 'AXL12345', operator: 'ATT', state: 'Texas'}];
+    var data = siteService.getAllSitesData();
     var newData = [{siteId: '', operator: '', state: ''}];
     siteControllerModel.tableParams = new NgTableParams({}, { dataset: data});
 
