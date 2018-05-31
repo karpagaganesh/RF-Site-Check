@@ -6,6 +6,22 @@ rfSiteCheckApp.controller("formController",
 
         formControllerModel.userFields = [
             {
+                key: 'operator',
+                type: 'input',
+                templateOptions: {
+                    label: 'Operator',
+                    placeholder: 'Operator'
+                }
+            },
+            {
+                key: 'state',
+                type: 'input',
+                templateOptions: {
+                    label: 'State',
+                    placeholder: 'State'
+                }
+            },
+            {
                 key: 'market',
                 type: 'input',
                 templateOptions: {
@@ -30,7 +46,7 @@ rfSiteCheckApp.controller("formController",
                 }
             },
             {
-                key: 'siteID',
+                key: 'siteId',
                 type: 'input',
                 templateOptions: {
                     label: 'Site ID',
