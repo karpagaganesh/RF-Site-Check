@@ -39,6 +39,22 @@ rfSiteCheckApp.service('siteService',
                 tabView.page = 'views/new_site.html';
             }
             else if (page.includes('view')){
+                for (var siteData in siteDatas){
+                    if (siteDatas[siteData]['siteId'] === site['name']){
+                        var newItem = {name:site['name'], page:'views/view_site.html'}
+                        var sitePresent = false;
+                        for(var siteTabIndex in sitesTab){
+                            if(sitesTab[siteTabIndex]['name'] === newItem['name']){
+                                sitePresent = true;
+                                break;
+                            }
+                        }
+                        if(!sitePresent){
+                            sitesTab.push(newItem)
+                        }
+                        selectedSite.value = siteDatas[siteData];
+                    }
+                }
                 tabView.page = 'views/view_site.html';
             }
         };
