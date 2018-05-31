@@ -1,5 +1,6 @@
 rfSiteCheckApp.service('siteService',
-    ['$http','utilityService', function($http,utilityService){
+    ['$http','utilityService','$localStorage', '$sessionStorage',
+        function($http,utilityService, $localStorage, $sessionStorage){
 
         var sitesTab = [{name: 'All Sites', id:'' ,page:'views/list_sites.html'}];
         var siteDatas = [{"siteId":"AXL12345","operator":"AT&T","state":"Texas,TX","market":"South Texas","submarket":"Austin","county":"Travis","streetAddress":"4","latitude":"6","longitude":"7","structureType":"8","ifOtherSpecify":"8","towerOwner":"8","cabinetType":"8","cabinetLocation":"8","numberOfCabinets":"8","basebandUnitType":"8","numberOfBasebandUnits":"8","numberOfSectors":"8","numberOfAntennasPerSector":"8","azimuth":"8","totalNumberOfRadiosOnTheSite":"8","radioModel":"8","radioLocation":"8","quantity":"8","numberOfTMAs":"8","tmaModel":"8","numberOfDiplexers":"8","diplexerModel":"8","numberOfCoaxialCables":"8","coaxialCableModel":"8","uploadImagesOfRadios":"8","uploadImagesOfAntennas":"8","uploadImagesOfCabinet":"8","uploadImagesOfDiplexerTMAs":"8","height":"8"},

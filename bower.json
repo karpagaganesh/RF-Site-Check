@@ -18,6 +18,7 @@
     "ng-table": "*",
     "angular-formly": "*",
     "angular-formly-templates-bootstrap": "*",
-    "api-check": "*"
+    "api-check": "*",
+    "ngstorage": "*"
   }
 }
