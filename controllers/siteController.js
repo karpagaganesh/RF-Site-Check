@@ -20,7 +20,8 @@ rfSiteCheckApp.controller("siteController",
     };
 
     siteControllerModel.openSite = function (site) {
-        siteService.openSite(site);
+        var matchedSite = siteService.openSite(site);
+
     };
 
     siteControllerModel.downloadSite = function (site) {

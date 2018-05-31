@@ -51,6 +51,7 @@ rfSiteCheckApp.service('siteService',
             }
             tabView.page = 'views/view_site.html';
             selectedSite.value = site;
+            return site
         };
 
         var getSelectedSite = function () {

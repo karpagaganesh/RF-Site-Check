@@ -2,7 +2,7 @@ rfSiteCheckApp.controller("formController",
     ['$scope', 'siteService', function($scope, siteService) {
         var formControllerModel = $scope;
         formControllerModel.selectedSite = siteService.getSelectedSite();
-        formControllerModel.user = {};
+        formControllerModel.newSite = {};
 
         formControllerModel.userFields = [
             {
@@ -298,8 +298,8 @@ rfSiteCheckApp.controller("formController",
             }
         ];
 
-        formControllerModel.submit = function(user){
-            console.log(JSON.stringify(user))
+        formControllerModel.submit = function(newSite){
+            console.log(JSON.stringify(newSite))
         }
 
 }]);
