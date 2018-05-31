@@ -297,4 +297,9 @@ rfSiteCheckApp.controller("formController",
                 }
             }
         ];
+
+        formControllerModel.submit = function(user){
+            console.log(JSON.stringify(user))
+        }
+
 }]);
