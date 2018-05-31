@@ -300,6 +300,7 @@ rfSiteCheckApp.controller("formController",
 
         formControllerModel.submit = function(newSite){
             console.log(JSON.stringify(newSite))
+            siteService.saveSite(newSite)
         }
 
 }]);
