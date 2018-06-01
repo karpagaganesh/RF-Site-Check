@@ -10,6 +10,21 @@ rfSiteCheckApp.controller("formController",
                 readOnly: true
             }
         };
+        var latPlaceHolder = undefined;
+        var longPlaceHolder = undefined;
+        if( navigator.geolocation ){
+            navigator.geolocation.getCurrentPosition(success, fail );
+        }
+
+        function success(position){
+            longPlaceHolder = position.coords.longitude;
+            latPlaceHolder = position.coords.latitude;
+        }
+
+        function fail(){
+            longPlaceHolder = 'Longitude';
+            latPlaceHolder = 'Latitude';
+        }
 
         formControllerModel.userFields = [
             {
@@ -22,10 +37,23 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'state',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'State',
-                    placeholder: 'State'
+                    "options": [
+                        {
+                            "name": "Arizona",
+                            "value": "arizona"
+                        },
+                        {
+                            "name": "California",
+                            "value": "california"
+                        },
+                        {
+                            "name": "Texas",
+                            "value": "texas"
+                        }
+                    ]
                 }
             },
             {
@@ -75,7 +103,7 @@ rfSiteCheckApp.controller("formController",
                 type: 'input',
                 templateOptions: {
                     label: 'Latitude',
-                    placeholder: 'Latitude'
+                    placeholder: latPlaceHolder
                 }
             },
             {
@@ -83,7 +111,7 @@ rfSiteCheckApp.controller("formController",
                 type: 'input',
                 templateOptions: {
                     label: 'Longitude',
-                    placeholder: 'Longitude'
+                    placeholder: longPlaceHolder
                 }
             },
             {
