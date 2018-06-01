@@ -3,6 +3,13 @@ rfSiteCheckApp.controller("formController",
         var formControllerModel = $scope;
         formControllerModel.selectedSite = siteService.getSelectedSite();
         formControllerModel.newSite = {};
+        formControllerModel.options = {
+            formState: {
+                horizontalLabelClass: 'col-sm-2',
+                horizontalFieldClass: 'col-sm-10',
+                readOnly: true
+            }
+        };
 
         formControllerModel.userFields = [
             {
@@ -299,7 +306,6 @@ rfSiteCheckApp.controller("formController",
         ];
 
         formControllerModel.submit = function(newSite){
-            console.log(JSON.stringify(newSite))
             siteService.saveSite(newSite)
         }
 

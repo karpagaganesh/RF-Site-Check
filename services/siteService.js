@@ -29,6 +29,18 @@ rfSiteCheckApp.service('siteService',
             return tabView
         };
 
+        var isSiteOpenInTabView = function(newItem){
+            var sitePresent = false;
+            for(var siteTabIndex in sitesTab){
+                if(sitesTab[siteTabIndex]['name'] === newItem['name']){
+                    sitePresent = true;
+                    break;
+                }
+            }
+
+            return sitePresent;
+        };
+
         var setTabContent = function(site){
             page = site.page;
             selectedSite.value = site;
@@ -42,13 +54,7 @@ rfSiteCheckApp.service('siteService',
                 for (var siteData in siteDatas){
                     if (siteDatas[siteData]['siteId'] === site['name']){
                         var newItem = {name:site['name'], page:'views/view_site.html'}
-                        var sitePresent = false;
-                        for(var siteTabIndex in sitesTab){
-                            if(sitesTab[siteTabIndex]['name'] === newItem['name']){
-                                sitePresent = true;
-                                break;
-                            }
-                        }
+                        var sitePresent = isSiteOpenInTabView(newItem);
                         if(!sitePresent){
                             sitesTab.push(newItem)
                         }
@@ -75,8 +81,15 @@ rfSiteCheckApp.service('siteService',
 
         var openSite = function (site) {
             for (siteData in siteDatas){
+                var newItem = undefined;
                 if (siteDatas[siteData]['siteId'] === site['siteId']){
-                    sitesTab.push({name:site['siteId'], page:'views/view_site.html'})
+                    newItem = {name:site['siteId'], page:'views/view_site.html'};
+                }
+                if(newItem !== undefined){
+                    var sitePresent = isSiteOpenInTabView(newItem);
+                    if(!sitePresent){
+                        sitesTab.push(newItem)
+                    }
                 }
             }
             tabView.page = 'views/view_site.html';
@@ -91,6 +104,12 @@ rfSiteCheckApp.service('siteService',
         var saveSite = function (newSite) {
             siteDatas.push(newSite);
             $localStorage.sites = siteDatas;
+            for(var siteIndex in sitesTab){
+                if(sitesTab[siteIndex]['name'] === 'All Sites'){
+                    setTabContent(sitesTab[siteIndex])
+                    break;
+                }
+            }
         };
 
         return {
