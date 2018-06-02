@@ -1,4 +1,4 @@
-rfSiteCheckApp.controller("formController",
+  rfSiteCheckApp.controller("formController",
     ['$scope', 'siteService', function($scope, siteService) {
         var formControllerModel = $scope;
         formControllerModel.selectedSite = siteService.getSelectedSite();
@@ -29,10 +29,23 @@ rfSiteCheckApp.controller("formController",
         formControllerModel.userFields = [
             {
                 key: 'operator',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Operator',
-                    placeholder: 'Operator'
+                    "options": [
+                      {
+                          "name": "AT&T",
+                          "value": "att"
+                      },
+                      {
+                          "name": "T-Mobile",
+                          "value": "tmobile"
+                      },
+                      {
+                          "name": "Sprint",
+                          "value": "sprint"
+                      }
+                  ]
                 }
             },
             {
@@ -41,43 +54,110 @@ rfSiteCheckApp.controller("formController",
                 templateOptions: {
                     label: 'State',
                     "options": [
-                        {
-                            "name": "Arizona",
-                            "value": "arizona"
-                        },
-                        {
-                            "name": "California",
-                            "value": "california"
-                        },
-                        {
-                            "name": "Texas",
-                            "value": "texas"
-                        }
+                      {
+                          "name": "Arizona",
+                          "value": "arizona"
+                      },
+                      {
+                          "name": "California",
+                          "value": "california"
+                      },
+                      {
+                          "name": "Texas",
+                          "value": "texas"
+                      },
+                      {
+                          "name": "Arkansas",
+                          "value": "arkansas"
+                      },
+                      {
+                          "name": "Colorado",
+                          "value": "colorado"
+                      },
+                      {
+                          "name": "Florida",
+                          "value": "florida"
+                      },
+                      {
+                          "name": "Georgia",
+                          "value": "georgia"
+                      },
+                      {
+                          "name": "Tennessee",
+                          "value": "tennessee"
+                      },
+                      {
+                          "name": "Kentucky",
+                          "value": "kentucky"
+                      },
+                      {
+                          "name": "Nevada",
+                          "value": "nevada"
+                      },
+                      {
+                          "name": "Nebraska",
+                          "value": "nebraska"
+                      }
                     ]
                 }
             },
             {
                 key: 'market',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Market',
-                    placeholder: 'Market'
+                    "options": [
+                      {
+                          "name": "South Texas",
+                          "value": "southTexas"
+                      },
+                      {
+                          "name": "North Texas",
+                          "value": "northTexas"
+                      }
+                  ]
                 }
             },
             {
                 key: 'submarket',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Submarket',
-                    placeholder: 'Submarket'
+                    "options": [
+                      {
+                          "name": "Houston",
+                          "value": "houston"
+                      },
+                      {
+                          "name": "San Antonio",
+                          "value": "sanAntonio"
+                      },
+                      {
+                          "name": "Austin",
+                          "value": "austin"
+                      }
+                  ]
                 }
             },
             {
                 key: 'county',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'County',
-                    placeholder: 'County'
+                    "options": [
+                      {
+                          "name": "Bexar",
+                          "value": "bexar"
+                      },
+                      {
+                          "name": "Hays",
+                          "value": "hays"
+                      },
+                      {
+                          "name": "Atascosa",
+                          "value": "atascosa"
+                      }
+                  ]
                 }
             },
             {
@@ -116,10 +196,23 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'structureType',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Structure Type',
-                    placeholder: 'Structure Type'
+                    "options": [
+                      {
+                          "name": "Self Support",
+                          "value": "selfSupport"
+                      },
+                      {
+                          "name": "Guyed",
+                          "value": "guyed"
+                      },
+                      {
+                          "name": "Roof Top",
+                          "value": "roofTop"
+                      }
+                  ]
                 }
             },
             {
@@ -132,10 +225,23 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'towerOwner',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Tower Owner',
-                    placeholder: 'Tower Owner'
+                    "options": [
+                      {
+                          "name": "Crown Castle",
+                          "value": "crownCastle"
+                      },
+                      {
+                          "name": "American Tower",
+                          "value": "americanTower"
+                      },
+                      {
+                          "name": "Other",
+                          "value": "other"
+                      }
+                  ]
                 }
             },
             {
@@ -148,18 +254,60 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'cabinetType',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Cabinet Type',
-                    placeholder: 'Cabinet Type'
+                    "options": [
+                        {
+                            "name": "RBS 6601",
+                            "value": "rbs6601"
+                        },
+                        {
+                            "name": "RBS 6101",
+                            "value": "rbs6101"
+                        },
+                        {
+                            "name": "RBS 6201",
+                            "value": "rbs6201"
+                        },
+                        {
+                            "name": "RBS 6303",
+                            "value": "rbs6303"
+                        },
+                        {
+                            "name": "RBS 6102",
+                            "value": "rbs6102"
+                        },
+                        {
+                            "name": "RBS 6201",
+                            "value": "rbs6201"
+                        },
+                        {
+                            "name": "RBS 6301",
+                            "value": "rbs6301"
+                        },
+                        {
+                            "name": "RBS 6302",
+                            "value": "rbs 6302"
+                        }
+                    ]
                 }
             },
             {
                 key: 'cabinetLocation',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Cabinet Location',
-                    placeholder: 'Cabinet Location'
+                    "options": [
+                      {
+                          "name": "Indoor",
+                          "value": "indoor"
+                      },
+                      {
+                          "name": "Outdoor",
+                          "value": "outdoor"
+                      }
+                  ]
                 }
             },
             {
@@ -172,10 +320,23 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'basebandUnitType',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Baseband Unit Type',
-                    placeholder: 'Baseband Unit Type'
+                    "options": [
+                      {
+                          "name": "DUS-41",
+                          "value": "dus41"
+                      },
+                      {
+                          "name": "BB-5216",
+                          "value": "bb5216"
+                      },
+                      {
+                          "name": "BB-6630",
+                          "value": "bb6630"
+                      }
+                  ]
                 }
             },
             {
@@ -220,19 +381,60 @@ rfSiteCheckApp.controller("formController",
             },
             {
                 key: 'radioModel',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Radio Model',
-                    placeholder: 'Radio Model'
+                    "options": [
+                        {
+                            "name": "RRUS-11",
+                            "value": "rrus11"
+                        },
+                        {
+                            "name": "RRUS-12",
+                            "value": "rrus12"
+                        },
+                        {
+                            "name": "RRUS-32 B2",
+                            "value": "rrus32B2"
+                        },
+                        {
+                            "name": "RRUS-32 B66",
+                            "value": "rrus32B66"
+                        },
+                        {
+                            "name": "Radio 4478",
+                            "value": "radio4478"
+                        },
+                        {
+                            "name": "Radio 4426",
+                            "value": "radio4426"
+                        },
+                        {
+                            "name": "Radio 8843",
+                            "value": "radio8843"
+                        },
+                        {
+                            "name": "Radio 4415",
+                            "value": "radio 4415"
+                        }
+                    ]
                 }
             },
-
             {
                 key: 'radioLocation',
-                type: 'input',
+                type: 'select',
                 templateOptions: {
                     label: 'Radio Location',
-                    placeholder: 'Radio Location'
+                    "options": [
+                      {
+                          "name": "Top",
+                          "value": "top"
+                      },
+                      {
+                          "name": "Bottom",
+                          "value": "bottom"
+                      }
+                  ]
                 }
             },
             {
