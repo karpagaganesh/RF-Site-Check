@@ -497,34 +497,42 @@
             },
             {
                 key: 'uploadImagesOfRadios',
-                type: 'input',
+                type: 'button',
                 templateOptions: {
                     label: 'Upload Images of Radios',
-                    placeholder: ' Upload Images of Radios'
+                    text: 'Upload',
+                    btnType: 'info',
+                    onClick: ''
                 }
             },
             {
                 key: 'uploadImagesOfAntennas',
-                type: 'input',
+                type: 'button',
                 templateOptions: {
                     label: 'Upload Images of Antennas',
-                    placeholder: ' Upload Images of Antennas'
+                    text: 'Upload',
+                    btnType: 'info',
+                    onClick: ''
                 }
             },
             {
                 key: 'uploadImagesOfCabinet',
-                type: 'input',
+                type: 'button',
                 templateOptions: {
                     label: 'Upload Images of Cabinet',
-                    placeholder: ' Upload Images of Cabinet'
+                    text: 'Upload',
+                    btnType: 'info',
+                    onClick: ''
                 }
             },
             {
                 key: 'uploadImagesOfDiplexerTMAs',
-                type: 'input',
+                type: 'button',
                 templateOptions: {
                     label: 'Upload Images of Diplexer/TMAs',
-                    placeholder: ' Upload Images of Diplexer/TMAs'
+                    text: 'Upload',
+                    btnType: 'info',
+                    onClick: ''
                 }
             },
             {
