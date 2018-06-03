@@ -10,20 +10,22 @@
                 readOnly: true
             }
         };
-        var latPlaceHolder = undefined;
-        var longPlaceHolder = undefined;
+        var latPlaceHolder = {value: undefined};
+        var longPlaceHolder = {value: undefined};
         if( navigator.geolocation ){
             navigator.geolocation.getCurrentPosition(success, fail );
         }
 
         function success(position){
-            longPlaceHolder = position.coords.longitude;
-            latPlaceHolder = position.coords.latitude;
+            longPlaceHolder.value = position.coords.longitude;
+            latPlaceHolder.value = position.coords.latitude;
+            console.log(latPlaceHolder)
+            console.log(longPlaceHolder)
         }
 
         function fail(){
-            longPlaceHolder = 'Longitude';
-            latPlaceHolder = 'Latitude';
+            longPlaceHolder.value = 'Longitude';
+            latPlaceHolder.value = 'Latitude';
         }
 
         formControllerModel.userFields = [
@@ -183,7 +185,7 @@
                 type: 'input',
                 templateOptions: {
                     label: 'Latitude',
-                    placeholder: latPlaceHolder
+                    placeholder: latPlaceHolder.value
                 }
             },
             {
@@ -191,7 +193,7 @@
                 type: 'input',
                 templateOptions: {
                     label: 'Longitude',
-                    placeholder: longPlaceHolder
+                    placeholder: longPlaceHolder.value
                 }
             },
             {

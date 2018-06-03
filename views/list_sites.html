@@ -4,9 +4,9 @@
             <td title="'Site ID'" filter="{ siteId: 'text'}" sortable="'siteId'">
                 <span style="cursor: pointer" ng-click="openSite(site)">{{site.siteId}}</span></td>
             <td title="'Operator'" filter="{ operator: 'text'}" sortable="'operator'">
-                {{site.operator}}</td>
+                <span style="text-transform: uppercase">{{site.operator}}</span></td>
             <td title="'State'" filter="{ state: 'text'}" sortable="'state'">
-                {{site.state}}</td>
+                    <span style="text-transform: capitalize">{{site.state}}</span></td>
             <td title="">
                 <span class="glyphicon glyphicon-cloud-download" style="cursor: pointer" ng-click="downloadSite(site)"></span>
             </td>
