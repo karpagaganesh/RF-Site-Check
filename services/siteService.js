@@ -7,6 +7,10 @@ rfSiteCheckApp.service('siteService',
             {"operator":"att","state":"arizona","market":"southTexas","submarket":"houston","county":"hays","siteId":"Site1","structureType":"selfSupport","towerOwner":"americanTower","cabinetType":"rbs6101","cabinetLocation":"outdoor","basebandUnitType":"dus41","radioModel":"rrus12","radioLocation":"bottom"}
         ];
 
+        var latPlaceHolder = {value: undefined};
+        var longPlaceHolder = {value: undefined};
+        var newSite = {"latitude": '', "longitude":''};
+
         var currentSitesInStorage = $localStorage.sites;
         if (currentSitesInStorage === undefined) {
             currentSitesInStorage = []
@@ -99,6 +103,19 @@ rfSiteCheckApp.service('siteService',
             return selectedSite;
         };
 
+        var getNewSiteModel = function () {
+            if( navigator.geolocation ){
+                navigator.geolocation.getCurrentPosition(success);
+            }
+            function success(position){
+                longPlaceHolder.value = position.coords.longitude;
+                latPlaceHolder.value = position.coords.latitude;
+                newSite.latitude = latPlaceHolder.value;
+                newSite.longitude = longPlaceHolder.value;
+            }
+            return newSite;
+        };
+
         var saveSite = function (newSite) {
             siteDatas.push(newSite);
             console.log(JSON.stringify(newSite))
@@ -119,6 +136,7 @@ rfSiteCheckApp.service('siteService',
             openSite: openSite,
             getTabViewUrl: getTabViewUrl,
             getSelectedSite: getSelectedSite,
+            getNewSiteModel: getNewSiteModel,
             saveSite: saveSite
         };
 }]);

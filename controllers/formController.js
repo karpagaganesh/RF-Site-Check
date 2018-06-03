@@ -2,7 +2,7 @@
     ['$scope', 'siteService', function($scope, siteService) {
         var formControllerModel = $scope;
         formControllerModel.selectedSite = siteService.getSelectedSite();
-        formControllerModel.newSite = {};
+        formControllerModel.newSite = siteService.getNewSiteModel();
         formControllerModel.options = {
             formState: {
                 horizontalLabelClass: 'col-sm-2',
@@ -10,23 +10,6 @@
                 readOnly: true
             }
         };
-        var latPlaceHolder = {value: undefined};
-        var longPlaceHolder = {value: undefined};
-        if( navigator.geolocation ){
-            navigator.geolocation.getCurrentPosition(success, fail );
-        }
-
-        function success(position){
-            longPlaceHolder.value = position.coords.longitude;
-            latPlaceHolder.value = position.coords.latitude;
-            console.log(latPlaceHolder)
-            console.log(longPlaceHolder)
-        }
-
-        function fail(){
-            longPlaceHolder.value = 'Longitude';
-            latPlaceHolder.value = 'Latitude';
-        }
 
         formControllerModel.userFields = [
             {
@@ -185,7 +168,7 @@
                 type: 'input',
                 templateOptions: {
                     label: 'Latitude',
-                    placeholder: latPlaceHolder.value
+                    placeholder: 'Latitude'
                 }
             },
             {
@@ -193,7 +176,7 @@
                 type: 'input',
                 templateOptions: {
                     label: 'Longitude',
-                    placeholder: longPlaceHolder.value
+                    placeholder: 'Longitude'
                 }
             },
             {
@@ -546,7 +529,8 @@
         ];
 
         formControllerModel.submit = function(newSite){
-            siteService.saveSite(newSite)
+            console.log(JSON.stringify(newSite))
+            // siteService.saveSite(newSite)
         }
 
 }]);
