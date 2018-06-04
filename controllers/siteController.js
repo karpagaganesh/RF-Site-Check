@@ -4,6 +4,8 @@ rfSiteCheckApp.controller("siteController",
     var siteControllerModel = $scope;
     siteControllerModel.selectedSite = siteService.getSelectedSite();
     siteControllerModel.tabContentUrl = siteService.getTabViewUrl();
+    siteControllerModel.loggedIn = {value: false};
+
     var data = siteService.getAllSitesData();
     var newData = [{siteId: '', operator: '', state: ''}];
     siteControllerModel.tableParams = new NgTableParams({}, { dataset: data});
@@ -32,7 +34,9 @@ rfSiteCheckApp.controller("siteController",
     };
 
     siteControllerModel.loginMe = function () {
-        console.log($scope.emailId);
-        console.log($scope.password);
+        if(siteControllerModel.emailId === "test@ericsson.com" && siteControllerModel.password === "kgtest"){
+            siteControllerModel.loggedIn.value = true;
+        }
+        console.log(siteControllerModel.loggedIn)
     };
 }]);

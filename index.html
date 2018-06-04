@@ -71,19 +71,24 @@
     <script src="services/utilityService.js"></script>
 
 </head>
-<body ng-controller="siteController" >
+<body ng-controller="siteController">
 <div>
     <header class="container">
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <img id="extraction" src="images/telecommunication.png" class="image-pad-left" style="">
             </div>
-            <div class="navbar-brand">5G Integrated Interface</div>
+            <div class="navbar-brand">5G Integrated Interface {{loggedIn}}</div>
         </div>
     </header>
 </div>
-<!--<div ng-include="'views/sites.html'"></div>-->
-<div ng-include="'views/login.html'"></div>
+
+<div ng-show="loggedIn.value">
+    <div ng-include="'views/sites.html'"></div>
+</div>
+<div ng-hide="loggedIn.value">
+    <div ng-include="'views/login.html'"></div>
+</div>
 
 </body>
 </html>
