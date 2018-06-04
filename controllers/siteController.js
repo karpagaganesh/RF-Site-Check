@@ -4,7 +4,7 @@ rfSiteCheckApp.controller("siteController",
     var siteControllerModel = $scope;
     siteControllerModel.selectedSite = siteService.getSelectedSite();
     siteControllerModel.tabContentUrl = siteService.getTabViewUrl();
-    siteControllerModel.loggedIn = {value: false};
+    siteControllerModel.loggedIn = {value: true};
 
     var data = siteService.getAllSitesData();
     var newData = [{siteId: '', operator: '', state: ''}];
