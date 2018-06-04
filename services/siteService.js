@@ -12,8 +12,17 @@ rfSiteCheckApp.service('siteService',
         var newSite = {"latitude": '', "longitude":''};
         var loggedIn = {value : false};
         var currentSitesInStorage = $localStorage.sites;
+        var loggedInStorage = $localStorage.loggedIn;
         if (currentSitesInStorage === undefined) {
             currentSitesInStorage = []
+        }
+
+        if(loggedInStorage === undefined){
+            loggedIn = {value : false};
+            $localStorage.loggedIn = loggedIn;
+        }
+        else{
+            loggedIn.value = loggedInStorage.value;
         }
 
         if(currentSitesInStorage.length > siteDatas.length){
@@ -134,6 +143,7 @@ rfSiteCheckApp.service('siteService',
 
         var logginSuccess = function () {
             loggedIn.value = true;
+            $localStorage.loggedIn = loggedIn;
         };
 
         return {
