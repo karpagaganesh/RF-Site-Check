@@ -1,3 +1,11 @@
+.newsitebgimg{
+    background: url('../images/People.jpg') no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto ;
+}
+
 .earth {
     height: 200px;
     width: 200px;
