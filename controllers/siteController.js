@@ -4,7 +4,7 @@ rfSiteCheckApp.controller("siteController",
     var siteControllerModel = $scope;
     siteControllerModel.selectedSite = siteService.getSelectedSite();
     siteControllerModel.tabContentUrl = siteService.getTabViewUrl();
-    siteControllerModel.loggedIn = {value: true};
+    siteControllerModel.loggedIn = siteService.getLogginView();
 
     var data = siteService.getAllSitesData();
     var newData = [{siteId: '', operator: '', state: ''}];
@@ -35,8 +35,7 @@ rfSiteCheckApp.controller("siteController",
 
     siteControllerModel.loginMe = function () {
         if(siteControllerModel.emailId === "test@ericsson.com" && siteControllerModel.password === "kgtest"){
-            siteControllerModel.loggedIn.value = true;
+            siteService.logginSuccess();
         }
-        console.log(siteControllerModel.loggedIn)
     };
 }]);

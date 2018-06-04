@@ -10,7 +10,7 @@ rfSiteCheckApp.service('siteService',
         var latPlaceHolder = {value: undefined};
         var longPlaceHolder = {value: undefined};
         var newSite = {"latitude": '', "longitude":''};
-
+        var loggedIn = {value : false};
         var currentSitesInStorage = $localStorage.sites;
         if (currentSitesInStorage === undefined) {
             currentSitesInStorage = []
@@ -128,6 +128,14 @@ rfSiteCheckApp.service('siteService',
             }
         };
 
+        var getLogginView = function () {
+            return loggedIn;
+        };
+
+        var logginSuccess = function () {
+            loggedIn.value = true;
+        };
+
         return {
             setTabContent: setTabContent,
             getSites: getSites,
@@ -137,6 +145,8 @@ rfSiteCheckApp.service('siteService',
             getTabViewUrl: getTabViewUrl,
             getSelectedSite: getSelectedSite,
             getNewSiteModel: getNewSiteModel,
-            saveSite: saveSite
+            saveSite: saveSite,
+            getLogginView: getLogginView,
+            logginSuccess: logginSuccess
         };
 }]);
