@@ -29,6 +29,10 @@ rfSiteCheckApp.controller("siteController",
         dlAnchorElem.setAttribute("href",     dataStr     );
         dlAnchorElem.setAttribute("download", site.siteId+".json");
         dlAnchorElem.click();
+    };
 
-    }
+    siteControllerModel.loginMe = function () {
+        console.log($scope.emailId);
+        console.log($scope.password);
+    };
 }]);
