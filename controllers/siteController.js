@@ -20,6 +20,10 @@ rfSiteCheckApp.controller("siteController",
     siteControllerModel.addSite = function(){
         siteService.addSite();
     };
+    
+    siteControllerModel.logout = function () {
+        siteService.logout();
+    };
 
     siteControllerModel.openSite = function (site) {
         var matchedSite = siteService.openSite(site);

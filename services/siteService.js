@@ -84,6 +84,12 @@ rfSiteCheckApp.service('siteService',
             return sitesTab;
         };
 
+        var logout = function () {
+            loggedIn = {value : false};
+            $localStorage.loggedIn = loggedIn;
+            location.reload();
+        };
+
         var addSite = function () {
             sitesTab.splice(1, 0, {name: 'Untitled Site', id:'', page:'views/new_site.html'});
             tabView.page = 'views/new_site.html';
@@ -151,6 +157,7 @@ rfSiteCheckApp.service('siteService',
             getSites: getSites,
             getAllSitesData: getAllSitesData,
             addSite: addSite,
+            logout: logout,
             openSite: openSite,
             getTabViewUrl: getTabViewUrl,
             getSelectedSite: getSelectedSite,
